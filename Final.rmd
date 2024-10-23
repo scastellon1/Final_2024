@@ -28,12 +28,36 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 $H_0$ The vaccine is not effective in preventing COVID-91 in males  
 $H_A$ The vaccine is effective in preventing COVID-91 in males  
- 
+    
+```{r}
+Male <- FinalDat[FinalDat$sex=="M",]
+```
+
+```{r}
+barchartGC(~infected + treatment,data=Male)
+barchartGC(~infected + treatment,data=Male, type="percent")
+
+```
+
+
+
 
 ## Females
 
 $H_0$ The vaccine is not effective in preventing COVID-91 in females  
 $H_A$ The vaccine is effective in preventing COVID-91 in females   
+
+```{r}
+Female <- FinalDat[FinalDat$sex=="F",]
+```
+
+```{r}
+barchartGC(~infected + treatment,data=Female)
+barchartGC(~infected + treatment,data=Female, type="percent")
+
+```
+
+
 
 ## LGBTQ
 
