@@ -26,15 +26,23 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 ## Males
 
+$H_0$ The vaccine is not effective in preventing COVID-91 in males  
+$H_A$ The vaccine is effective in preventing COVID-91 in males  
+ 
 
 ## Females
 
+$H_0$ The vaccine is not effective in preventing COVID-91 in females  
+$H_A$ The vaccine is effective in preventing COVID-91 in females   
 
 ## LGBTQ
 
-
+$H_0$ The vaccine is not effective in preventing COVID-91 in LGBTQ  
+$H_A$ The vaccine is effective in preventing COVID-91 in LGBTQ   
 
 ## Druggies
 
+$H_0$ The vaccine is not effective in preventing COVID-91 in druggies  
+$H_A$ The vaccine is effective in preventing COVID-91 in druggies   
 
 # Overall Results and Conclusions
