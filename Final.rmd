@@ -26,8 +26,18 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 ## Males
 
+## Methods 
+
+Question : Is the COVID-91 vaccine effective in males?
+
 $H_0$ The vaccine is not effective in preventing COVID-91 in males  
-$H_A$ The vaccine is effective in preventing COVID-91 in males  
+
+$H_A$ The vaccine is effective in preventing COVID-91 in males    
+
+infected~sex(M)     
+categorical~categorical
+
+We will be using Cat~Cat
     
 ```{r}
 Male <- FinalDat[FinalDat$sex=="M",]
@@ -39,8 +49,31 @@ barchartGC(~infected + treatment,data=Male, type="percent")
 
 ```
 
+The bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. 
 
+## Numerical Results 
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=Male)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical data shows the result in percentages. Within the placebo group 73.80% of individuals got infected with COVID-91. While in the vaccine group 26.20% contracted COVID-91. This indicates that receiving the vaccine as a male significantly reduces the risk of contracted COVID-91. 
+
+## Inferential Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+This data and the fisher exact test shows that the P-Value is 2.2e-16 which is significantly lower than 0.05 which means we reject the null hypothesis. 
+
+## Conclusion 
+
+The bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. The numerical data shows the results in percentages. Within the placebo group 73.80% of individuals got infected with COVID-91. This indicates that receiving the vaccine as a male significantly reduces the risk of contracted COVID-91. The inferential data including the Fisher exact test shows that the P-Value is 2.2e-16 which is significantly lower than 0.05 which means we reject the null hypothesis. All in all these examples and simulations show that as a male you are far less likely to contract COVID-91 upon receiving the vaccine. 
 
 ## Females
 
