@@ -77,8 +77,19 @@ The bar chart shows that you are less likely to contract COVID-91 if you did rec
 
 ## Females
 
+## Methods 
+
+Question: Is the vaccine effective in preventing COVID-91 in feamles?
+
 $H_0$ The vaccine is not effective in preventing COVID-91 in females  
-$H_A$ The vaccine is effective in preventing COVID-91 in females   
+$H_A$ The vaccine is effective in preventing COVID-91 in females  
+
+infected~sex(F)   
+categorical~categorical   
+
+We will be using cat~cat
+
+## Graphical results 
 
 ```{r}
 Female <- FinalDat[FinalDat$sex=="F",]
@@ -90,12 +101,37 @@ barchartGC(~infected + treatment,data=Female, type="percent")
 
 ```
 
+This bar chart shows that females are less likely to contract COVID-91 after reviewing the vaccine.
 
+## Numerical Results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=Female)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical data shows the results in percentages. Within the placebo group 64.93% of individuals got infected with COVID-91. While in the vaccinated group 35.07% contracted COVID-91. This indicates that receiving the vaccine as a female significantly reduces the risk of contracted COVID-91. 
+
+## Inferential Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+This data and the Fisher exact test shows that the P-value is 1.246e-08 which is significantly lower than 0.05 which means we reject the null hypothesis. 
+
+## Conclusion 
+
+the bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. The numerical data shows the results in percentages. Within the placebo group 64.39% of individuals got infected with COVID-91. While in the vaccine group 35.07% contracted COVID-91. This indicates that receiving the vaccine as a female significantly reduces the risk of contracted COVID-91. The inferential data including the Fisher exact test shows that the P-Value is 1.246e-08 which is significantly lower than 0.05 which means we reject the null hypothesis. In summation these examples and simulations show that is a female you are far less liekly to contract COVID-91 if you recieve the vaccine. 
 
 ## LGBTQ
 
-$H_0$ The vaccine is not effective in preventing COVID-91 in LGBTQ  
-$H_A$ The vaccine is effective in preventing COVID-91 in LGBTQ   
+$H_0$ The vaccine is not effective in preventing COVID-91 in LGBTQ
+
+$H_A$ The vaccine is effective in preventing COVID-91 in LGBTQ     
 
 ## Druggies
 
