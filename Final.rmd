@@ -69,11 +69,11 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-This data and the fisher exact test shows that the P-Value is 2.2e-16 which is significantly lower than 0.05 which means we reject the null hypothesis. 
+The Chi square and p value is .00000000000000022 while the fisher exact test shows the p value is .00000000000000022 this is lower than .05 so we reject the null hypothesis. 
 
 ## Conclusion 
 
-The bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. The numerical data shows the results in percentages. Within the placebo group 73.80% of individuals got infected with COVID-91. This indicates that receiving the vaccine as a male significantly reduces the risk of contracted COVID-91. The inferential data including the Fisher exact test shows that the P-Value is 2.2e-16 which is significantly lower than 0.05 which means we reject the null hypothesis. All in all these examples and simulations show that as a male you are far less likely to contract COVID-91 upon receiving the vaccine. 
+The bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. The numerical data shows the results in percentages. Within the placebo group 73.80% of individuals got infected with COVID-91. This indicates that receiving the vaccine as a male significantly reduces the risk of contracted COVID-91. The inferential data including the Fisher exact test and chi square shows that the P-Value is .00000000000000022 which is significantly lower than 0.05 which means we reject the null hypothesis. All in all these examples and simulations show that as a male you are far less likely to contract COVID-91 upon receiving the vaccine. 
 
 ## Females
 
@@ -121,21 +121,102 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-This data and the Fisher exact test shows that the P-value is 1.246e-08 which is significantly lower than 0.05 which means we reject the null hypothesis. 
+This data and the Fisher exact test shows that the P-value is .00000001914 which is significantly lower than 0.05 which means we reject the null hypothesis. 
 
 ## Conclusion 
 
-the bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. The numerical data shows the results in percentages. Within the placebo group 64.39% of individuals got infected with COVID-91. While in the vaccine group 35.07% contracted COVID-91. This indicates that receiving the vaccine as a female significantly reduces the risk of contracted COVID-91. The inferential data including the Fisher exact test shows that the P-Value is 1.246e-08 which is significantly lower than 0.05 which means we reject the null hypothesis. In summation these examples and simulations show that is a female you are far less liekly to contract COVID-91 if you recieve the vaccine. 
+the bar chart shows that you are less likely to contract COVID-91 if you did receive the vaccine. The numerical data shows the results in percentages. Within the placebo group 64.39% of individuals got infected with COVID-91. While in the vaccine group 35.07% contracted COVID-91. This indicates that receiving the vaccine as a female significantly reduces the risk of contracted COVID-91. The inferential data including the Fisher exact test shows that the P-Value is 1.246e-08 which is significantly lower than 0.05 which means we reject the null hypothesis. In summation these examples and simulations show that is a female you are far less likely to contract COVID-91 if you receive the vaccine. 
 
 ## LGBTQ
 
+## Methods 
+
 $H_0$ The vaccine is not effective in preventing COVID-91 in LGBTQ
 
-$H_A$ The vaccine is effective in preventing COVID-91 in LGBTQ     
+$H_A$ The vaccine is effective in preventing COVID-91 in LGBTQ  
+
+## Graphical results 
+
+```{r}
+LGBTQ <- FinalDat[FinalDat$LGBTQ=="gay",]
+```
+
+```{r}
+barchartGC(~infected + treatment,data=LGBTQ)
+barchartGC(~infected + treatment,data=LGBTQ, type="percent")
+
+```
+
+The bar chart shows that members of the LGBTQ community are less likely to contract COVID-91 if you have received the vaccine. 
+
+## Numerical Results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=LGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```
+The numerical data shows that within the placebo group 80% of the LGBTQ community members got infected with COVID-91, while of the LGBTQ community members who received the vaccine only 20% got COVID-91. 
+
+## Inferential Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The chi square test p value is .000002266 and the fisher exact test shows the p value is .0000007269. This is lower than 0.05 so we reject then null hypothesis. 
+
+## Conclusion 
+
+The bar chart shows that members of the LGBTQ community are less likely to contract COVID-91 if you received the vaccine. The numerical data shows that within the placebo group 80% of the LGBTQ community members got infected with COVID-91 while the LGBTQ community who received the vaccine only 20% got infected. The fisher exact test shows the p value is .0000007269 which is lower than 0.05 so we reject then null hypothesis.  
 
 ## Druggies
 
+## Methods 
+
 $H_0$ The vaccine is not effective in preventing COVID-91 in druggies  
-$H_A$ The vaccine is effective in preventing COVID-91 in druggies   
+$H_A$ The vaccine is effective in preventing COVID-91 in druggies 
+
+## Graphical results 
+
+```{r}
+DrugUser <- FinalDat[FinalDat$DrugUser=="yes",]
+```
+
+```{r}
+barchartGC(~infected + treatment,data=DrugUser)
+barchartGC(~infected + treatment,data=DrugUser, type="percent")
+
+```
+
+The bar chart shows that members of the DrugUser community are more likely to contract COVID-91 if you have received the vaccine. 
+
+## Numerical Results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=DrugUser)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical data shows that within the placebo group 8.33% of the DrugUser community members got infected with COVID-91, while members who received the vaccine 91.67% got COVID-91. This indicates those who received the vaccine had a significant increase of contracting COVID-91. 
+
+## Inferential Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The chi square test shows the p value is .0000000001414 and the fisher exact test show the p value is .000000000003261 which is lower than .05 so we reject the null hypothesis. 
+
+## Conclusion 
+
+The bar chart shows that members of the DrugUsers community are more likely to contract COVID-91 if they received the vaccine. The numerical data shows that within the placebo group 8.33% of the DrugUser community members got infected, while the members who received the vaccine 91.76% got infected. This indicates those who recieved that vaccine had a significant increase of contracting COVID-91 The chi square test p value is .0000000001414 and the fisher exact test show the p value is .000000000003261 which is lower than .05 so we reject the null hypothesis. This data shows that DrugUsers are far more likely to contract COVID-91 if they received the vaccine. 
 
 # Overall Results and Conclusions
+
+Overall the data reflects that receiving the vaccine generally helps with preventing the contraction of COVID-91 if you are a female, male or LGBTQ. However, in the DrugUser community those who received the vaccine had a higher risk of contracting COVID-91 
